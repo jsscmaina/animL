@@ -1,0 +1,28 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+{% load static %}
+<div class="container mt-10">
+    <div>
+        <a href="{% url 'home' %}" class="justify-content-center">
+            <i class="fa fa-angle-double-left mb-1 indigo-text" aria-hidden="true">{% trans 'HOME' %}</i></a>
+    </div>
+    <div class="container" data-widget='{"draggable": "true"}'>
+        <div class="card-header teal">
+            <h2 class="card-title">{% trans 'EDIT PROFILE' %}</h2>
+        </div>
+        <div class="m-5">
+            <form method="post" enctype="multipart/form-data" class="validate">
+                <div class="container row justify-content-center " >
+                    <table class="table container">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </table>
+                    <input type="submit" class="finish btn-primary btn" value="{% trans 'UPDATE' %}">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'header/footer.html' %}

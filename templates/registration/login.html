@@ -1,0 +1,22 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+<div class="container mt-10">
+    <div class="card" style="background-color:" data-widget='{"draggable": "false"}'>
+        <div class="card-header teal">
+            <h2 class="card-title">{% trans 'LOGIN' %}</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" action="" class="validate">
+                <div class="container row justify-content-center mt-10" >
+                    <table>
+                        {% csrf_token %}
+                        {{ form.as_table }}
+                    </table>
+                </div>
+                <input type="submit" class="finish btn-primary btn" value="{% trans 'LOGIN' %}">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'header/footer.html' %}

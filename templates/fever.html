@@ -1,0 +1,41 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+{% load static %}
+<div class="container mt-10">
+    <div>
+        <a href="{% url 'individual_symptoms' %}" class="justify-content-center m-5">
+            <i class="fa fa-stethoscope mb-1 indigo-text" aria-hidden="true">{% trans 'IDENTIFY SPECIFIC SYMPTOMS' %}</i></a>
+    </div>
+    <div class="card" data-widget='{"draggable": "false"}'>
+        <div class="card-header teal">
+            <h2 class="card-title">{% trans 'FEVER' %}</h2>
+        </div>
+        <div class="card-body">
+            <p>{% trans 'Look at your thermometer. Notice the silver line of the mercury inside it and the scale with numbers marked along it. Before you use it you must make sure that the mercury level is below 35°C. If it is not, shake the thermometer to make the level go down. Every time you use the thermometer clean it with cold water and soap or disinfect it afterward. Do not wash the thermometer in hot water as this will burst it. Do not leave your thermometer in the sun as this may burst it. Carry the thermometer in a case in your pocket or bag. Do not use your veterinary thermometer for people.' %}</p>
+            <form method="post" enctype="multipart/form-data" action="get_fever" class="validate">
+                <div class="container row justify-content-center" >
+                    {% csrf_token %}
+                    <input type="number" name="fever" class="form-control"><br><br>
+                    <input type="submit" class="finish btn-primary btn" value="Submit">
+                </div>
+                {{ a }}
+        {% if temp %}
+            <div class="row" >
+                {% if temp == 'Normal' %}
+                    <h4>{% trans 'Normal'  %}</h4>
+                {% elif temp == 'HIGH FEVER' %}
+                    <h4>{% trans 'HIGH FEVER'  %}</h4>
+                {% else %}
+                    <h4>{% trans 'SHIVERS'  %}</h4>
+                {% endif %}
+                <div class="col-md-6">
+                    <img class="img-fluid" src="{{ filePathName }}" >
+                </div>
+            </div>
+        {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'header/footer.html' %}

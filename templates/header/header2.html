@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>DIAGNOSIS</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'vendor/icofont/icofont.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/boxicons/css/boxicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/remixicon/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/venobox/venobox.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/owl.carousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/aos/aos.css' %}">
+
+
+    <style type="text/css">
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 60vh;
+      }
+
+      @media (max-width: 740px) {
+        html,
+        body,
+        header,
+        .carousel {
+          height: 100vh;
+        }
+      }
+
+      @media (min-width: 800px) and (max-width: 850px) {
+        html,
+        body,
+        header,
+        .carousel {
+          height: 100vh;
+        }
+      }
+
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+    </style>
+</head>
+<body class="" style="background-color:#E0F2F1 ">
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark scrolling-navbar mb-8" style="width:100%">
+    <div class="container">
+
+      <!-- Brand -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <strong>{% trans 'CATTLE HEALTH' %}</strong>
+            </a>
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link btn btn-outline-light rounded" href="{% url 'symptom'  %}"><strong>{% trans 'DIAGNOSE' %} </strong> </a>
+              </li>
+          </ul>
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+              {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light rounded" href="{% url 'logout'  %}"><strong>{% trans 'LOGOUT' %} </strong> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light rounded" href="{% url 'observation'  %}"><strong>{% trans 'OBSERVATION' %} </strong> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light rounded" href="{% url 'edit_profile'  %}"><strong>{% trans 'EDIT PROFILE' %} </strong> </a>
+                    </li>
+              {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light rounded" href="{% url 'register'  %}"><strong>{% trans 'REGISTER' %} </strong> </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light rounded" href="{% url 'login'  %}"><strong>{% trans 'LOGIN' %} </strong> </a>
+                  </li>
+              {% endif %}
+              <li class="nav-item">
+                  <a href="https://github.com/jsscmaina/animL" class="nav-link btn btn-outline-light rounded"
+                     target="_blank">
+                      <i class="fab fa-github mr-2"></i>ANIMAL CODE
+                  </a>
+              </li>
+
+          </ul>
+          <form action="{% url 'change_language' %}" method="post" class="d-flex input-group w-auto justify-content-end pl-2">
+              {% csrf_token %}
+              {% get_current_language as LANGUAGE_CODE %}
+              <select name="language" class="form-control h-auto navbar-text btn-outline-light">
+                  {% get_available_languages as LANGUAGES %}
+                  {% for language in LANGUAGES %}
+                  <option style="color:black" value="{{ language.0 }}" {% if language.0 == LANGUAGE_CODE %} selected{% endif %}>
+                      {{ language.0|language_name_local }} ({{ language.0 }})
+                  </option>
+                  {% endfor %}
+              </select>
+              <input type="submit" class="btn-outline-light h-auto navbar-text" data-mdb-ripple-color="light" value="{% trans 'CHANGE' %}">
+
+          </form>
+
+      </div>
+
+    </div>
+  </nav>

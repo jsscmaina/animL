@@ -1,0 +1,19 @@
+{% include 'header/header2.html' %}
+<div class="container mt-10 p-10 text-2xl">
+    <h1>{{ category | title }}</h1>
+    <hr>
+    {% for post in posts %}
+        <h2><a href="{% url 'content_detail' post.pk %}">{{ post.title }}</a></h2>
+        <small>
+            {{ post.created_on.date }} |&nbsp;
+            Categories:&nbsp;
+            {% for category in post.categories.all %}
+                <a href="{% url 'content_category' category.name %}">{{ category.name }}</a>&nbsp;
+            {% endfor %}
+        </small>
+        <p>{{ post.body | slice:":400" | safe }}...</p>
+    {% endfor %}
+</div>
+
+
+{% include 'header/footer2.html' %}

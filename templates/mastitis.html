@@ -1,0 +1,40 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+{% load static %}
+<div class="container mt-10">
+    <div>
+        <a href="{% url 'individual_symptoms' %}" class="justify-content-center m-5">
+            <i class="fa fa-stethoscope mb-1 indigo-text" aria-hidden="true">{% trans 'IDENTIFY SPECIFIC SYMPTOMS' %}</i></a>
+    </div>
+    <div class="card" data-widget='{"draggable": "false"}'>
+        <div class="card-header teal">
+            <h2 class="card-title">MASTITIS</h2>
+        </div>
+        <div class="card-body">
+            <p>{% trans 'Cattle affected by mastitis can be detected by examining the udder for inflammation and swelling, or by observing the consistency of the milk, which will often develop clots or change color when a cow is infected.' %}</p>
+            <p>{% trans 'Take a clear photo on a clean surface. It is recommended to not zoom in completely.' %} </p>
+            <form method="post" enctype="multipart/form-data" action="predict_image" class="validate">
+                <div class="container row justify-content-center " >
+                    {% csrf_token %}
+                    <input type="file" name="filePath" class="form-control"><br><br>
+                    <input type="submit" class="finish btn-primary btn" value="Submit">
+                </div>
+
+            </form>
+        {% if filename %}
+        <div class="row" style="height:400px; width:400px">
+            {% if predicted_class == 'Normal' %}
+                <h4>{% trans 'Normal'  %}</h4>
+            {% else %}
+                <h4>{% trans 'Abnormal'  %}</h4>
+            {% endif %}
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{ filePathName }}" >
+            </div>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% include 'header/footer.html' %}

@@ -1,0 +1,37 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+<div class="container mt-10">
+    {% if st %}
+        <h1>The diagnosis is <strong>{{ st }}</strong> </h1>
+        <p>{% trans 'More Information' %}
+                    <a href="{% url 'content_index' %}" class="text-blue-100">{% trans 'DISEASES' %}</a></p>
+    {% endif %}
+
+    <div class="card" style="background-color:" data-widget='{"draggable": "false"}'>
+        <div class="card-header teal">
+            <h2 class="card-title">Symptom List</h2>
+        </div>
+        <div class="card-body">
+<!--            <h1>Add 0 or 1</h1>-->
+            <div class="container justify-content-center mb-10">
+                <a href="{% url 'export' %}" class="btn btn-outline-dark">Download List of Symptoms</a>
+                <p>{% trans 'If you are not sure, feel free to check the list of' %}
+                    <a href="{% url 'examine_index' %}" class="text-blue-100">{% trans 'Symptoms' %}</a></p>
+            </div>
+            <form method="post" enctype="multipart/form-data" action="diagnose" class="validate">
+                <div class="container row justify-content-center " >
+<!--                    <table>-->
+                    {% csrf_token %}
+<!--                    {{ form.as_table }}-->
+<!--                    </table>-->
+                    {% include 'symptoms_form.html' %}
+                </div>
+                <div class="card-footer">
+                    <input type="submit" class="finish btn-primary btn" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'header/footer.html' %}

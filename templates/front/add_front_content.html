@@ -1,0 +1,128 @@
+{% load static %}
+{% load i18n %}
+{% include 'header/header2.html' %}
+{% if user.is_authenticated %}
+    <!-- ckeditor-->
+    <script src="https://cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
+    <!--<div class="container justify-content-center form-group">-->
+    <!--    <form action="" method="POST" >-->
+    <!--        {% csrf_token %}-->
+    <!--        {{ form.as_p }}-->
+    <!--        <button class="btn btn-indigo">POST</button>-->
+
+    <!--    </form>-->
+    <!--</div>-->
+    <!-- Background image -->
+    <form action="{% url 'update' front.pk %}" method="POST" class="container">
+        {% csrf_token %}
+        {{ form.media }}
+        <div
+            class="p-5 text-center bg-image view"
+            style="
+            background-image: url('{% static '/images/scenes.jpg' %}');
+            height: 600px;
+            "
+        >
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+                <div class="d-flex justify-content-center align-self-center h-100">
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea name="banner" id="editor1" rows="5" class="gray form-control">{{front.banner_en |safe  }}  </textarea>
+                            <br>
+                        </div>
+                        <div class="col-12">
+                            <label for="banner_sw" class="text-white">SWAHILI: </label>
+                            <textarea name="banner_sw" id="editor2" rows="5" class="gray form-control">{{front.banner_sw |safe  }}  </textarea>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <!-- Background image -->
+        <div class="container">
+        <!--Section: Main info-->
+        <section class="mt-5 wow fadeIn">
+        <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 container" style="height:15%">
+                    <img src="{% static 'images/cows.jpg' %}" class="img-fluid rounded z-depth-1-half" alt="">
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 form-outline">
+                    <!-- Main heading -->
+                    <input type="text" class="form-control" name="first_title" value="{{ front.first_title_en }}" >
+                    <br>
+                    <label for="first_title_sw" >SWAHILI: </label>
+                    <input type="text" class="form-control" name="first_title_sw" value="{{ front.first_title_sw }}" >
+                    <br>
+                    <textarea class="form-control" id="editor3" name="first_box" cols="70" rows="10">{{ front.first_box_en }}</textarea>
+                    <br>
+                    <label for="first_box_sw" >SWAHILI: </label>
+                    <textarea class="form-control" id="editor4" name="first_box_sw" cols="70" rows="10">{{ front.first_box_sw }}</textarea>
+                    <!-- Main heading -->
+                    <!-- CTA -->
+
+                    <hr>
+                  </div>
+                  <!--Grid column-->
+            </div>
+        <!--Grid row-->
+        <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 form-outline">
+                    <!-- Main heading -->
+                        <input type="text" class="form-control" name="second_title" value="{{ front.second_title_en }}" >
+                        <br>
+                        <label for="second_title_sw" >SWAHILI: </label>
+                        <input type="text" class="form-control" name="second_title_sw" value="{{ front.second_title_sw }}" >
+                        <br>
+                        <textarea class="form-control" id="editor5" name="second_box"  cols="70" rows="10">{{ front.second_box_en }}</textarea>
+                        <br>
+                        <label for="second_box_sw">SWAHILI: </label>
+                        <textarea class="form-control" id="editor6" name="second_box_sw" cols="70" rows="10">{{ front.second_box_sw }}</textarea>
+                    <!-- Main heading -->
+                    <!-- CTA -->
+
+                    <hr>
+                  </div>
+                  <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 container" style="height:15%">
+                    <img src="{% static 'images/scenes.jpg' %}" class="img-fluid rounded z-depth-1-half" alt="">
+                </div>
+                <!--Grid column-->
+            </div>
+        <!--Grid row-->
+            </section>
+        <!--Section: Main info-->
+        </div>
+        <input type="submit" value="{% trans 'SAVE' %}" class="btn btn-primary" >
+    </form>
+{% else %}
+    <div class=" container justify-content-center align-middle">
+        <h1>You have not logged in</h1>
+    </div>
+{% endif %}
+<script>
+    CKEDITOR.replace( 'editor1' );
+    CKEDITOR.replace( 'editor2' );
+    CKEDITOR.replace( 'editor3' );
+    CKEDITOR.replace( 'editor4' );
+    CKEDITOR.replace( 'editor5' );
+    CKEDITOR.replace( 'editor6' );
+</script>
+
+{% include 'header/footer2.html' %}
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>

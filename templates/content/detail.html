@@ -1,0 +1,22 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+<div class="container mt-5 p-10 text-2xl">
+    <div>
+        <a href="{% url 'content_index' %}" class="justify-content-center">
+            <i class="fa fa-angle-double-left mb-1 indigo-text" aria-hidden="true">{% trans 'DISEASE INDEX' %}</i></a>
+    </div>
+    <hr>
+    <h1>{{ post.title }}</h1>
+    <hr>
+    <small>
+        {{ post.created_on.date }} | &nbsp;
+        Categories:&nbsp;
+        {% for category in post.categories.all %}
+            <a href="{% url 'content_category' category.name %}">{{ category.name }}</a>&nbsp;
+        {% endfor %}
+    </small>
+    <p>{{ post.body | safe| linebreaks }}</p>
+
+</div>
+
+{% include 'header/footer2.html' %}

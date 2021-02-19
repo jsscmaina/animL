@@ -1,0 +1,4 @@
+To get the database, run 'python manage.py makemigrations'
+then run 'python manage.py migrate'
+
+THE NAME OF THE TABLE IS 'animl_django', THE PORT HAS BEEN SET TO 3307 in the 'animL/settings.py' file

@@ -1,0 +1,17 @@
+{% include 'header/header2.html' %}
+{% load static %}
+{% load i18n %}
+
+<div class="container mt-5 p-10 text-2xl">
+    <div class="row justify-content-left" >
+        <a href="{% url 'examine_index' %}" class="justify-content-center mt-10"><i class="fa fa-angle-double-left fa-2x mb-1 indigo-text" aria-hidden="true"></i></a>
+        <h2>  |{{ guide.title }}</h2>
+    </div>
+    <hr>
+    <div class="container">
+        <p>{{ guide.body | safe| linebreaks }}</p>
+    </div>
+</div>
+
+
+{% include 'header/footer2.html' %}

@@ -1,0 +1,18 @@
+{% include 'header/header2.html' %}
+{% load static %}
+{% load i18n %}
+<div class="container mt-5 p-10 text-2xl">
+    <h2>{% trans 'EXAMINE GUIDES' %}</h2>
+    <hr>
+    <div class="row justify-content-evenly">
+        {% for guide in guides %}
+            <div class="col-md-6">
+                <h2><a class="indigo-text link-light" href="{% url 'examine_detail' guide.pk %}">{{ guide.title }}</a></h2>
+                <p>{{ guide.body|slice:":400"|safe }}...</p>
+            </div>
+        {% empty %}
+            <p>{% trans 'Sorry, no content yet' %}</p>
+        {% endfor %}
+    </div>
+</div>
+{% include 'header/footer2.html' %}

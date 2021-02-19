@@ -1,0 +1,174 @@
+{% load static %}
+{% load i18n %}
+{% include 'header/header2.html' %}
+{% for front in object_list %}
+<!-- Background image -->
+    <div
+        class="p-5 text-center bg-image view hover-zoom"
+        style="
+        background-image: url('{% static '/images/scenes.jpg' %}');
+        height: 600px;
+        "
+    >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="" >
+                    <h1 class="mb-3 text-white">{{ front.banner|safe }}</h1>
+<!--                    <h1 class="mb-3"> Preventing and controlling diseases grows economies, bolsters local communities, and improves the health of vulnerable populations, especially the young and elderly</h1>-->
+                    <!--  <h4 class="mb-3">Subheading</h4>-->
+                    <div>
+                        <a class="btn btn-outline-light btn-lg" href="{% url 'symptom'  %}" role="button"
+                        >{% trans 'DIAGNOSE' %}</a>
+                        {% if user.is_staff %}
+                        <a class="btn btn-outline-light btn-lg" href="{% url 'front_edit' front.pk %}">
+                            <strong>{% trans 'EDIT' %} </strong> </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Background image -->
+
+<div class="container">
+    <!--Section: Main info-->
+    <section class="mt-5 wow fadeIn">
+    <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-6 mb-4 container" style="height:15%">
+                <img src="{% static 'images/cows.jpg' %}" class="img-fluid rounded z-depth-1-half" alt="">
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6 mb-4 p-10">
+                <!-- Main heading -->
+                <h3 class="h3 mb-3">{{ front.first_title }}</h3>
+                <p>{{ front.first_box |safe }}</p>
+<!--                <p class="text-2xl" > A disease may be defined as an injurious deviation from a normal physiological state of an organism sufficient to produce overt signs, or symptoms. The deviation may be either an obvious organic change in the tissue composing an organ or a functional disturbance whose organic changes are not obvious.-->
+<!--                    The severity of the changes that occur in cells and tissues subjected to injurious agents is dependent upon both the sensitivity of the tissue concerned and the nature and time course of the agent-->
+<!--                    Diseases may be either infectious or noninfectious. The term infection, as observed earlier, implies an interaction between two living organisms, called the host and the parasite. Infection is a type of parasitism, which may be defined as the state of existence of one organism (the parasite) at the expense of another (the host).-->
+<!--                    Agents (e.g., certain viruses, bacteria, fungi, protozoans, worms, and arthropods) capable of producing disease are pathogens.</p>-->
+                <!-- Main heading -->
+                <!-- CTA -->
+                <a href="{% url 'content_index' %}" class="btn btn-indigo btn-md">{% trans 'DISEASES INDEX' %}</a>
+                <hr>
+              </div>
+              <!--Grid column-->
+            </div>
+    <!--Grid row-->
+    <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+                <!-- Main heading -->
+                <h3 class="h3 mb-3">{{ front.second_title }}</h3>
+                <p>{{ front.second_box |safe }}</p>
+<!--                <p class="text-2xl" > Clinical examination is a fundamental part of the process of veterinary diagnosis.-->
+<!--                    Without a proficient clinical examination and an accurate diagnosis it is unlikely that the treatment, control, prognosis and welfare of animals will be optimised.-->
+<!--                    This book will assist farmers in their understanding of farm animal clinical examination and-->
+<!--                    act as a quick reference for those who are called upon to examine an unfamiliar species.</p>-->
+                <!-- Main heading -->
+                <!-- CTA -->
+                <a href="{% url 'examine_index' %}" class="btn btn-indigo btn-md">{% trans 'EXAMINE GUIDES' %}</a>
+              </div>
+              <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6 mb-4 container" style="height:15%">
+                <img src="{% static 'images/scenes.jpg' %}" class="img-fluid rounded z-depth-1-half" alt="">
+            </div>
+            <!--Grid column-->
+        </div>
+    <!--Grid row-->
+    </section>
+    <!--Section: More-->
+    <hr>
+    <section>
+        <!--First row-->
+        <div class="row mt-2 wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fa fa-medkit fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+              </div>
+              <div class="col-10 mb-2 pl-3">
+                <h5 class="feature-title font-bold mb-1">{% trans 'DISEASE INFORMATION' %}</h5>
+              </div>
+            </div>
+            <!--/Grid row-->
+          </div>
+          <!--/Grid column-->
+
+          <!--Grid column-->
+          <div class=" col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fa fa-heartbeat fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+              </div>
+              <div class="col-10 mb-2">
+                <h5 class="feature-title font-bold mb-1">{% trans 'EXAMINE GUIDES' %}</h5>
+                <p class="grey-text mt-2">
+                </p>
+              </div>
+            </div>
+            <!--/Grid row-->
+          </div>
+          <!--/Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fas fa-stethoscope fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+              </div>
+              <div class="col-10 mb-2">
+                <h5 class="feature-title font-bold mb-1">{% trans 'DIAGNOSE' %}</h5>
+                <p class="grey-text mt-2">
+                </p>
+              </div>
+            </div>
+            <!--/Grid row-->
+          </div>
+          <!--/Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-6">
+            <!--Grid row-->
+            <div class="row">
+              <div class="col-2">
+                <i class="fa fa-stethoscope fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+              </div>
+              <div class="col-10 mb-2">
+                <h5 class="feature-title font-bold mb-1">{% trans 'INDIVIDUAL SYMPTOMS' %}</h5>
+                <p class="grey-text mt-2">
+                </p>
+              </div>
+            </div>
+            <!--/Grid row-->
+          </div>
+          <!--/Grid column-->
+
+        </div>
+        <!--/First row-->
+
+      </section>
+      <!--Section: More-->
+</div>
+{% endfor %}
+
+
+{% include 'header/footer2.html' %}
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>

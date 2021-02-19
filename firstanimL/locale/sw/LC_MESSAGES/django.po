@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-10 09:52+0300\n"
+"PO-Revision-Date: 2021-02-08 13:40+0000\n"
+"Last-Translator: b'  <jsscmaina72@gmail.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: .\firstanimL\urls.py:15
+msgid "observation"
+msgstr "uchunguzi"
+
+#: .\firstanimL\urls.py:16
+msgid "add_observation"
+msgstr "ongeza_uchunguzi"
+
+#: .\firstanimL\urls.py:17
+msgid "save_observe"
+msgstr "hifadhi_uchunguzi"
+
+#: .\firstanimL\urls.py:18
+msgid "symptom"
+msgstr "ishara"
+
+#: .\firstanimL\views.py:171 .\firstanimL\views.py:210
+msgid "Welcome"
+msgstr "Karibu"

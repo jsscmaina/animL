@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-10 09:52+0300\n"
+"PO-Revision-Date: 2021-02-09 21:55+0000\n"
+"Last-Translator: b'  <jsscmaina72@gmail.com>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: .\animL\urls.py:35
+msgid "disease/"
+msgstr "magonjwa/"
+
+#: .\animL\urls.py:36
+msgid "examine/"
+msgstr "chunguza/"
+
+#: .\animL\urls.py:37 .\animL\urls.py:38
+msgid "members/"
+msgstr "watumiaji/"
+
+#: .\animL\urls.py:46
+msgid "fever"
+msgstr "joto"
+
+#: .\animL\urls.py:47
+msgid "get_fever"
+msgstr "pata_joto"
+
+#: .\templates\content\detail.html:6 .\templates\content\search.html:7
+#, fuzzy
+#| msgid "DISEASES INDEX"
+msgid "DISEASE INDEX"
+msgstr "FAHARISI YA MAGONJWA"
+
+#: .\templates\content\index.html:5 .\templates\index.html:54
+msgid "DISEASES INDEX"
+msgstr "FAHARISI YA MAGONJWA"
+
+#: .\templates\content\index.html:7 .\templates\examine\index.html:11
+msgid "Search"
+msgstr "Tafuta"
+
+#: .\templates\examine\index.html:5 .\templates\examine\search.html:5
+#: .\templates\index.html:73 .\templates\index.html:113
+msgid "EXAMINE GUIDES"
+msgstr "MIONGOZO YA KUCHUNGUZA MAGONJWA"
+
+#: .\templates\examine\index.html:8 .\templates\fever.html:7
+#: .\templates\mastitis.html:7 .\templates\transition.html:6
+msgid "IDENTIFY SPECIFIC SYMPTOMS"
+msgstr "TAMBUA DALILI MAALUM"
+
+#: .\templates\examine\index.html:21 .\templates\examine\search.html:14
+msgid "Sorry, no content yet"
+msgstr "Samahani, hakuna yaliyomo"
+
+#: .\templates\fever.html:11
+msgid "FEVER"
+msgstr "JOTO LA MWILI"
+
+#: .\templates\fever.html:14
+msgid ""
+"Look at your thermometer. Notice the silver line of the mercury inside it "
+"and the scale with numbers marked along it. Before you use it you must make "
+"sure that the mercury level is below 35°C. If it is not, shake the "
+"thermometer to make the level go down. Every time you use the thermometer "
+"clean it with cold water and soap or disinfect it afterward. Do not wash the "
+"thermometer in hot water as this will burst it. Do not leave your "
+"thermometer in the sun as this may burst it. Carry the thermometer in a case "
+"in your pocket or bag. Do not use your veterinary thermometer for people."
+msgstr ""
+"Angalia kipima joto chako. Angalia mstari wa fedha wa zebaki ndani yake na "
+"kiwango na nambari zilizowekwa alama kando yake.\n"
+"Kabla ya kuitumia lazima uhakikishe kuwa kiwango cha zebaki iko chini ya 35 "
+"° C. Ikiwa sivyo, tikisa kipima joto ili kufanya kiwango kishuke.\n"
+"Kila wakati unapotumia kipima joto kiisafishe na maji baridi na sabuni au "
+"ikipate dawa baadaye.\n"
+"Usioshe kipima joto katika maji ya moto kwani hii itaipasua. Usiache kipima "
+"joto chako kwenye jua kwani hii inaweza kuipasua. Beba kipima joto katika "
+"kesi kwenye mfuko au mfuko wako. Usitumie kipima joto chako cha mifugo kwa "
+"watu."
+
+#: .\templates\fever.html:25 .\templates\mastitis.html:27
+msgid "Normal"
+msgstr "Sawa"
+
+#: .\templates\fever.html:27
+#, fuzzy
+#| msgid "FEVER"
+msgid "HIGH FEVER"
+msgstr "JOTO LA MWILI LIKO JUU"
+
+#: .\templates\fever.html:29
+msgid "SHIVERS"
+msgstr "BARIDI"
+
+#: .\templates\front\add_front_content.html:103
+#: .\templates\observation\add_observation.html:68
+msgid "SAVE"
+msgstr "SASISHA"
+
+#: .\templates\header\header2.html:68
+msgid "CATTLE HEALTH"
+msgstr "AFYA YA NG'OMBE"
+
+#: .\templates\header\header2.html:81 .\templates\index.html:21
+#: .\templates\index.html:130
+msgid "DIAGNOSE"
+msgstr "TAMBUA UGONJWA"
+
+#: .\templates\header\header2.html:88
+msgid "LOGOUT"
+msgstr "TOKA"
+
+#: .\templates\header\header2.html:91
+msgid "OBSERVATION"
+msgstr "UCHUNGUZI"
+
+#: .\templates\header\header2.html:94 .\templates\members\edit_profile.html:11
+msgid "EDIT PROFILE"
+msgstr "BADILISHA WASIFU"
+
+#: .\templates\header\header2.html:98 .\templates\registration\register.html:6
+#: .\templates\registration\register.html:16
+msgid "REGISTER"
+msgstr "JIANDIKISHE"
+
+#: .\templates\header\header2.html:101 .\templates\registration\login.html:6
+#: .\templates\registration\login.html:16
+msgid "LOGIN"
+msgstr "INGIA"
+
+#: .\templates\header\header2.html:123
+msgid "CHANGE"
+msgstr "BADILISHA"
+
+#: .\templates\index.html:24 .\templates\observation\index.html:63
+msgid "EDIT"
+msgstr "HARIRI"
+
+#: .\templates\index.html:98
+msgid "DISEASE INFORMATION"
+msgstr "FAHARISI YA MAGONJWA"
+
+#: .\templates\index.html:147
+msgid "INDIVIDUAL SYMPTOMS"
+msgstr "CHUNGUZA DALILI"
+
+#: .\templates\mastitis.html:14
+msgid ""
+"Cattle affected by mastitis can be detected by examining the udder for "
+"inflammation and swelling, or by observing the consistency of the milk, "
+"which will often develop clots or change color when a cow is infected."
+msgstr ""
+"Ng'ombe walioathiriwa na ugonjwa wa matiti huweza kugunduliwa kwa kuchunguza "
+"kiwelekwa kuvimba na uvimbe, au kwa kuzingatia msimamo wa maziwa, ambayo "
+"mara nyingi hua na kuganda au kubadilisha rangi wakati ng'ombe ameambukizwa."
+
+#: .\templates\mastitis.html:15
+msgid ""
+"Take a clear photo on a clean surface. It is recommended to not zoom in "
+"completely."
+msgstr "Piga picha wazi kwenye uso safi. Inashauriwa usiondoe kabisa"
+
+#: .\templates\mastitis.html:29
+msgid "Abnormal"
+msgstr "Si Sawa"
+
+#: .\templates\members\edit_profile.html:7
+msgid "HOME"
+msgstr "SEBULE"
+
+#: .\templates\members\edit_profile.html:20
+#: .\templates\observation\update.html:74
+msgid "UPDATE"
+msgstr "SASISHA"
+
+#: .\templates\observation\add_observation.html:6
+#: .\templates\observation\index.html:37 .\templates\observation\index.html:41
+#: .\templates\observation\update.html:8
+msgid "OBSERVATION CHART"
+msgstr "MATOKEO YA UCHUNGUZI"
+
+#: .\templates\observation\add_observation.html:74
+#: .\templates\observation\index.html:107
+#: .\templates\observation\update.html:80
+msgid "YOU ARE NOT AUTHORISED TO BE HERE!"
+msgstr "HUNA RUHUSA KUWA HAPA"
+
+#: .\templates\observation\delete_observation.html:7
+#, fuzzy
+#| msgid "ADD OBSERVATION"
+msgid "DELETE OBSERVATION"
+msgstr "ONGEZA MATOKEO YA UCHUNGUZI"
+
+#: .\templates\observation\delete_observation.html:13
+msgid "ARE YOU SURE YOU WANT TO DELETE THIS RECORD?"
+msgstr "UNAHAKIKISHA UNATAKA KUFUTA REKODI HII?"
+
+#: .\templates\observation\delete_observation.html:16
+#: .\templates\observation\index.html:65
+msgid "DELETE"
+msgstr "FUTA"
+
+#: .\templates\symptoms.html:6
+msgid "More Information"
+msgstr ""
+
+#: .\templates\symptoms.html:7
+#, fuzzy
+#| msgid "DISEASES INDEX"
+msgid "DISEASES"
+msgstr "FAHARISI YA MAGONJWA"
+
+#: .\templates\symptoms.html:18 .\templates\transition.html:12
+msgid "If you are not sure, feel free to check the list of"
+msgstr "Ikiwa huna hakika, angalia orodha ya"
+
+#: .\templates\symptoms.html:19 .\templates\transition.html:13
+msgid "Symptoms"
+msgstr "Dalili"
+
+#, fuzzy
+#~ msgid "EXAMINE"
+#~ msgstr "MIONGOZO YA KUCHUNGUZA MAGONJWA"

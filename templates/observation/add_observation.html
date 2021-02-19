@@ -1,0 +1,87 @@
+{% include 'header/header2.html' %}
+<script src="https://cdn.ckeditor.com/4.15.1/standard-all/ckeditor.js"></script>
+{% load i18n %}
+{% if user.is_authenticated %}
+<div class="container mt-5 p-10">
+    <h2>{% trans 'OBSERVATION CHART' %}</h2>
+   <form action="save_observe" method="POST">
+       {% csrf_token %}
+       {{ form.media }}
+       <input type="hidden" id="author" name="author" value="{{ user.id }}">
+       <div class="container">
+           <div class="row align-self-center">
+               <div class="col-md-6">
+                    <!-- ANIMAL IDENTIFIER input -->
+                    <div class="form-outline">
+                      <input type="text" id="animl_id" name="animl_id" class="form-control" />
+                      <label class="form-label" for="animl_id">Animal Identifier</label>
+                    </div>
+               </div>
+              <div class="col-md-6">
+                  <!-- DATE input -->
+                  <div class="form-outline">
+                      <input type="date" id="observe_date" name="observe_date" class="form-control" />
+                      <label class="form-label" for="observe_date">Observation Date</label>
+                  </div>
+              </div>
+           </div>
+           <hr/>
+
+           <div class="row">
+               <div class="col-md-6">
+                    <!-- EXAMINE FRONT input -->
+                    <div class="form-outline mb-5">
+                        <textarea id="examine_front" name="examine_front" class="form_control" ></textarea>
+                        <label class="form-label" for="examine_front">EXAMINE FRONT SECTION</label>
+                    </div>
+               </div>
+               <div class="col-md-6">
+                   <p>INFORMATION AND GUIDANCE</p>
+               </div>
+               <hr/>
+               <div class="col-md-6">
+                    <!-- EXAMINE BACK input -->
+                    <div class="form-outline mb-5">
+                        <textarea id="examine_back" name="examine_back" class="form_control" ></textarea>
+                        <label class="form-label" for="examine_back">EXAMINE BACK SECTION</label>
+                    </div>
+                </div>
+               <div class="col-md-6">
+                   <p>INFORMATION AND GUIDANCE</p>
+               </div>
+               <hr/>
+               <div class="col-md-6">
+                    <!-- EXAMINE REST input -->
+                    <div class="form-outline mb-5">
+                        <textarea id="examine_rest" name="examine_rest" class="form_control" ></textarea>
+                        <label class="form-label" for="examine_rest">EXAMINE REST SECTION</label>
+                    </div>
+                </div>
+               <div class="col-md-6">
+                   <p>INFORMATION AND GUIDANCE</p>
+               </div>
+               <hr/>
+            </div>
+       </div>
+
+       <div class="col-6 justify-content-center align-self-center">
+           <button class="btn btn-primary btn-block">{% trans 'SAVE' %}</button>
+        </div>
+   </form>
+</div>
+{% else %}
+<div class="container align-self-center justify-content-center h-100">
+    <h3>{% trans 'YOU ARE NOT AUTHORISED TO BE HERE!' %}</h3>
+    <a href="{% url 'home' %}"><i class="fa fa-angle-double-left fa-2x mb-1 indigo-text" aria-hidden="true">HOME</i></a>
+</div>
+{% endif %}
+<script>
+    CKEDITOR.replace( 'examine_front' );
+    CKEDITOR.replace( 'examine_back' );
+    CKEDITOR.replace( 'examine_rest' );
+    CKEDITOR.replace( 'editor4' );
+    CKEDITOR.replace( 'editor5' );
+    CKEDITOR.replace( 'editor6' );
+</script>
+
+{% include 'header/footer2.html' %}

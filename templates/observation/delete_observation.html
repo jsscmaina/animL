@@ -1,0 +1,23 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+{% load static %}
+<div class="container mt-10">
+    <div class="card" data-widget='{"draggable": "false"}'>
+        <div class="card-header teal">
+            <h2 class="card-title">{% trans 'DELETE OBSERVATION' %}</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" class="validate">
+                <div class="container row justify-content-center " >
+                    {% csrf_token %}
+                    <strong>{% trans 'ARE YOU SURE YOU WANT TO DELETE THIS RECORD?' %}</strong>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" class="finish btn-primary btn" value="{% trans 'DELETE' %}">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'header/footer.html' %}

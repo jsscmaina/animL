@@ -1,0 +1,113 @@
+{% include 'header/header2.html' %}
+{% load i18n %}
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}
+            <div class="alert alert-{{ message.tags }}">
+                <div class="container">
+                    <div class="alert-icon">
+                        <i class="fa fa-info-circle"></i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </button>
+                    <b>{{ message }}</b>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if success_message %}
+<div class="alert alert-success">
+                <div class="container">
+                    <div class="alert-icon">
+                        <i class="fa fa-info-circle"></i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                    </button>
+                    <b>{{ success_message }}</b>
+                </div>
+            </div>
+{% endif %}
+{% if user.is_authenticated %}
+    <div class="container mt-5 justify-content-center align-self-center">
+        <div>
+            <a href="{% url 'add_observation' %}" class="justify-content-center m-5">
+                <i class="fa fa-plus fa-2x mb-1 indigo-text" aria-hidden="true">{% trans 'OBSERVATION CHART' %}</i></a>
+        </div>
+
+        <div class="container justify-content-center align-self-center">
+<!--            <h4>{% trans 'OBSERVATION CHART' %}</h4>-->
+        </div>
+        {% for ob in object_list %}
+            {% if user.id == ob.author_id %}
+<div class="justify-content-center align-self-center m-2">
+    <div class="card">
+                <div class="card-header bg-green-100">
+                 <div class="col-md-6">
+                        <div class="form-outline">
+                            <label class="form-label" for="animl_id">Animal Identifier:</label>
+                            <input type="text" disabled id="animl_id" name="animl_id" class="form-control" value="{{ ob.animl_id }}" />
+                        </div>
+                   </div>
+                    <div class="col-md-6">
+                         <div class="form-outline">
+                             <label class="form-label" for="observe_date">Observation Date:</label>
+                              <input type="text" id="observe_date" name="observe_date" class="form-control" value="{{ ob.observe_date }}" disabled/>
+                          </div>
+                    </div>
+                    <div class="col-md-2">
+                         <div class="form-outline">
+                             <a href="{% url 'edit_observation' ob.id %}" class="justify-content-center">
+                                 <i class="fa fa-edit mb-1 indigo-text" aria-hidden="true">{% trans 'EDIT' %}</i></a> |
+                             <a href="{% url 'delete_observation' ob.id %}" class="justify-content-center">
+                                 <i class="fa fa-times mb-1 indigo-text" aria-hidden="true">{% trans 'DELETE' %}</i></a>
+                         </div>
+                    </div>
+                </div>
+               <div class="card-body row">
+                   <div class="col-md-4 border-end">
+                        <!-- EXAMINE FRONT input -->
+                       <h6 style="text-decoration-line: underline;" >FRONT SECTION</h6>
+                       <div class="" >
+                           <p>{{ ob.examine_front|safe }}</p>
+                       </div>
+                   </div>
+                   <div class="col-md-4">
+                       <h6 style="text-decoration-line: underline;" >BACK SECTION</h6>
+                       <div class="" >
+                           <!-- EXAMINE BACK input -->
+                           <p>{{ ob.examine_back|safe }}</p>
+                       </div>
+                   </div>
+                   <div class="col-md-4">
+                       <h6 style="text-decoration-line: underline;" >THE REST OF THE BODY </h6>
+                        <!-- EXAMINE REST input -->
+                       <div>
+                           <p>{{ ob.examine_rest|safe }}</p>
+                       </div>
+                   </div>
+                </div>
+               <hr/>
+            </div>
+</div>
+
+            {% endif %}
+        {% empty %}
+            {% if user.is_staff %}
+                <p>NO CONTENT ADDED!!</p>
+            {% else %}
+                <p>YOU THOUGHT</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% else %}
+<div class="container align-self-center justify-content-center h-100">
+    <h3>{% trans 'YOU ARE NOT AUTHORISED TO BE HERE!' %}</h3>
+    <a href="{% url 'home' %}"><i class="fa fa-angle-double-left fa-2x mb-1 indigo-text" aria-hidden="true">HOME</i></a>
+</div>
+{% endif %}
+
+
+{% include 'header/footer2.html' %}
